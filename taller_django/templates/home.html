@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }} </h2>
+    {% else %}
+    <h2>Hello World!</h2>
+    {% endif %}
+
+    <p>I came from <strong>{{ get_or_post }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Button</button>
+    </form>
+
+{% endblock %}
